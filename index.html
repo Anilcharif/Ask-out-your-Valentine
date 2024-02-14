@@ -37,8 +37,10 @@
 <body class="gradient-background">
   <div class="flex flex-col items-center justify-center h-screen">
     <h1 id="title" class="text-4xl font-bold italic text-[#bd1e59] my-4">Nasseha</h1>
-    <div class="relative">
+    <div class="relative flex">
+      <img id="leftImage" src="./images/image8.gif" alt="Left image" class="rounded-md h-[300px] sm:h-auto mr-4 hidden" style="object-fit: cover;" />
       <img id="imageDisplay" src="./images/image1.gif" alt="Cute kitten with flowers" class="rounded-md h-[300px] sm:h-auto" style="object-fit: cover;" />
+      <img id="rightImage" src="./images/image8.gif" alt="Right image" class="rounded-md h-[300px] sm:h-auto ml-4 hidden" style="object-fit: cover;" />
     </div>
     <div class="flex gap-4 pt-[20px] items-center" id="responseButtons">
       <button id="yesButton"
@@ -59,6 +61,8 @@
     const yesButton = document.getElementById('yesButton');
     const noButton = document.getElementById('noButton');
     const imageDisplay = document.getElementById('imageDisplay');
+    const leftImage = document.getElementById('leftImage');
+    const rightImage = document.getElementById('rightImage');
     const responseButtons = document.getElementById('responseButtons');
     const additionalButton = document.getElementById('additionalButton');
     const audio = document.getElementById('audio');
@@ -83,6 +87,10 @@
       sadCatSound.play();
     }
 
+    function playHappySong() {
+      audio.play();
+    }
+
     noButton.addEventListener('click', function() {
       if (noClickCount < 5) {
         noClickCount++;
@@ -105,17 +113,24 @@
       title.textContent = "I Love you ❤️"; // Change the title
       additionalButton.style.display = 'block'; // Show the additional button
 
+      // Play chipi-chipi-chapa-chapa.mp3
+      const chipiChapaSound = new Audio('./images/chipi-chipi-chapa-chapa.mp3');
+      chipiChapaSound.play();
+
       // Trigger confetti animation
       confetti();
 
       // Change to image7.gif after a delay
       setTimeout(() => {
         imageDisplay.src = './images/image7.gif';
+        leftImage.classList.remove('hidden'); // Show left image
+        rightImage.classList.remove('hidden'); // Show right image
         // Change to image8.gif after another delay
         setTimeout(() => {
           imageDisplay.src = './images/image9.gif';
-        }, 2000); // Adjust the delay here (1000 milliseconds = 1 second)
-      }, 2000); // Adjust the delay here (1000 milliseconds = 1 second)
+          leftImage.src = rightImage.src = './images/image8.gif'; // Change left and right image source to image8.gif
+        }, 5000); // Adjust the delay here (1000 milliseconds = 1 second)
+      }, 300); // Adjust the delay here (1000 milliseconds = 1 second)
     });
 
     additionalButton.addEventListener('click', () => {
