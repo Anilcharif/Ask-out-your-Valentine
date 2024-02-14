@@ -31,6 +31,15 @@
       .move-around {
         font-size: 1.5rem;
       }
+      
+      .responsive-button {
+        width: 100%;
+      }
+
+      .responsive-image {
+        height: auto;
+        max-width: 100%;
+      }
     }
   </style>
 </head>
@@ -44,7 +53,7 @@
     </div>
     <div class="flex gap-4 pt-[20px] items-center" id="responseButtons">
       <button id="yesButton"
-        class="bounce2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-lg font-medium disabled:pointer-events-none disabled:opacity-50 hover:bg-green-400 h-[48px] sm:h-auto w-[80px] sm:w-auto px-4 py-2 bg-green-500 text-white transition">
+        class="bounce2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-lg font-medium disabled:pointer-events-none disabled:opacity-50 hover:bg-green-400 h-[48px] sm:h-auto w-[80px] sm:w-auto px-4 py-2 bg-green-500 text-white transition responsive-button">
         Yes
       </button>
       <button id="noButton"
