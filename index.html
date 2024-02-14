@@ -50,6 +50,8 @@
         No
       </button>
     </div>
+    <button id="additionalButton" class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" style="display:none;">Bonus 😘</button>
+    <audio id="audio" src="./images/happy-happy-happy-song.mp3" style="display:none;"></audio>
   </div>
 
   <script type="module">
@@ -58,6 +60,8 @@
     const noButton = document.getElementById('noButton');
     const imageDisplay = document.getElementById('imageDisplay');
     const responseButtons = document.getElementById('responseButtons');
+    const additionalButton = document.getElementById('additionalButton');
+    const audio = document.getElementById('audio');
     const title = document.getElementById('title');
 
     let noClickCount = 0;
@@ -93,18 +97,23 @@
     yesButton.addEventListener('click', () => {
       responseButtons.style.display = 'none'; // Hide both buttons
       title.textContent = "I Love you ❤️"; // Change the title
-      
+      additionalButton.style.display = 'block'; // Show the additional button
+
       // Trigger confetti animation
       confetti();
-      
+
       // Change to image7.gif after a delay
       setTimeout(() => {
         imageDisplay.src = './images/image7.gif';
         // Change to image8.gif after another delay
         setTimeout(() => {
-          imageDisplay.src = './images/image8.gif';
+          imageDisplay.src = './images/image9.gif';
         }, 2000); // Adjust the delay here (1000 milliseconds = 1 second)
       }, 2000); // Adjust the delay here (1000 milliseconds = 1 second)
+    });
+
+    additionalButton.addEventListener('click', () => {
+      audio.play();
     });
   </script>
 </body>
