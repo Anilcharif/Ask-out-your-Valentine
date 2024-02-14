@@ -46,7 +46,7 @@
         Yes
       </button>
       <button id="noButton"
-        class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-lg font-medium transition disabled:pointer-events-none disabled:opacity-50 hover:bg-red-700 h-[48px] sm:h-auto w-[80px] sm:w-auto px-4 py-2 bg-red-500 text-white" onclick="return false;">
+        class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-lg font-medium transition disabled:pointer-events-none disabled:opacity-50 hover:bg-red-700 h-[48px] sm:h-auto w-[80px] sm:w-auto px-4 py-2 bg-red-500 text-white" onclick="playSadCatSound(); return false;">
         No
       </button>
     </div>
@@ -78,6 +78,11 @@
       "./images/image7.gif"
     ];
 
+    function playSadCatSound() {
+      const sadCatSound = new Audio('./images/sad-cat-singing.mp3');
+      sadCatSound.play();
+    }
+
     noButton.addEventListener('click', function() {
       if (noClickCount < 5) {
         noClickCount++;
@@ -91,6 +96,7 @@
         if (noClickCount < 6) {
           noButton.textContent = ["No", "Are you sure?", "Pookie please", "Don't do this to me :(", "You're breaking my heart", "I'm gonna cry..."][noClickCount];
         }
+        playSadCatSound(); // Play the sad cat sound
       }
     });
 
